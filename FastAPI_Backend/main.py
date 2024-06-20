@@ -46,7 +46,7 @@ def home():
     return {"health_check": "OK"}
 
 
-@app.post("/prediction/",response_model=PredictionOut)
+@app.post("/predict/",response_model=PredictionOut)
 def update_item(prediction_input:PredictionIn):
     recommendation_dataframe=recommend(dataset,prediction_input.nutrition_input,prediction_input.ingredients,prediction_input.params.dict())
     output=output_recommended_recipes(recommendation_dataframe)
